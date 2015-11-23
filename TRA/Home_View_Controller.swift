@@ -22,7 +22,14 @@ class Home_View_Controller: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         Email_Label.text = Email
-        Password_Label.text = Password
+    }
+    
+    /*
+    How to pass variables
+    */
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let questionPage:Core_Question_Controller = segue.destinationViewController as! Core_Question_Controller
+        questionPage.email = self.Email
     }
     
 }

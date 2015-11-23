@@ -81,12 +81,9 @@ class Login_View: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        print("Fuck you Neil")
         if(segue.identifier == "Home_Segue") {
-            
             let Home_Page:Home_View_Controller = segue.destinationViewController as! Home_View_Controller
             Home_Page.Email = self.email_string
-            Home_Page.Password = self.password_string
         }
     }
     

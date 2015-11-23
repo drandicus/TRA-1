@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "0C69A951141B7082146C59D2C78BC1A2FEC97323",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "0C69A951141B7082146C59D2C78BC1A2FEC97323" : 0,
+    "B1F0C533BE65D81026AB1724005A0E4C06B3A716" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "50E56F34-B3A5-4AED-8812-0833E6DC46B5",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "0C69A951141B7082146C59D2C78BC1A2FEC97323" : "TRA-1\/",
+    "B1F0C533BE65D81026AB1724005A0E4C06B3A716" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "TRA",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "TRA.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/drandicus\/TRA-1.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0C69A951141B7082146C59D2C78BC1A2FEC97323"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:drandicus\/ABananaPerspective.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B1F0C533BE65D81026AB1724005A0E4C06B3A716"
+    }
+  ]
+}

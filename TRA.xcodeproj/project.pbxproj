@@ -31,6 +31,7 @@
 		0BB971EA1BEFF66200EB50CF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BB971E91BEFF66200EB50CF /* CoreGraphics.framework */; };
 		0BB971EC1BEFF66B00EB50CF /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BB971EB1BEFF66B00EB50CF /* CFNetwork.framework */; };
 		0BB971EE1BEFF67300EB50CF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BB971ED1BEFF67300EB50CF /* AudioToolbox.framework */; };
+		5805A5821C02833500F45B51 /* Core_Questions_Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5805A5811C02833500F45B51 /* Core_Questions_Controller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		0BB971E91BEFF66200EB50CF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		0BB971EB1BEFF66B00EB50CF /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		0BB971ED1BEFF67300EB50CF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		5805A5811C02833500F45B51 /* Core_Questions_Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Core_Questions_Controller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 				0B88B8041BEEECCB00393D77 /* Images.xcassets */,
 				0B88B8061BEEECCB00393D77 /* LaunchScreen.xib */,
 				0B88B7FB1BEEECCB00393D77 /* Supporting Files */,
+				5805A5811C02833500F45B51 /* Core_Questions_Controller.swift */,
 			);
 			path = TRA;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 			files = (
 				0B88B7FE1BEEECCB00393D77 /* AppDelegate.swift in Sources */,
 				0B88B8441BEF035500393D77 /* Sign_Up.swift in Sources */,
+				5805A5821C02833500F45B51 /* Core_Questions_Controller.swift in Sources */,
 				0B88B8421BEEFAFB00393D77 /* Home_View_Controller.swift in Sources */,
 				0B88B8401BEEF12100393D77 /* Login_View.swift in Sources */,
 			);

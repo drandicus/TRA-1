@@ -50,10 +50,12 @@ class Sign_Up: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
+    /*
+        Checks whether the conditions for segue-ing are met, if so, allows segue
+    */
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
             if identifier == "Sign_Up_Segue" {
-
-                    // do not segue if password does not match
+                // do not segue if password does not match
                 if tests_passed_bool == false {
                     return false
                 }
@@ -62,9 +64,11 @@ class Sign_Up: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         return true
     }
     
+    /*
+        How to pass variables
+    */
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "Sign_Up_Segue") {
-            
             let Home_Page:Home_View_Controller = segue.destinationViewController as! Home_View_Controller
             Home_Page.Email = self.email_string
             Home_Page.Password = self.password_string
