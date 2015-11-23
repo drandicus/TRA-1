@@ -33,7 +33,7 @@ class Sign_Up: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     var retype_password: String?
     var valid_email: Bool?
     var password_length: Int?
-    var pickOption = ["", "male", "female"]
+    var pickOption = ["", "Male", "Female"]
     
     //bool verification variables
     var tests_passed_bool: Bool?
@@ -69,9 +69,8 @@ class Sign_Up: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     */
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "Sign_Up_Segue") {
-            let Home_Page:Home_View_Controller = segue.destinationViewController as! Home_View_Controller
-            Home_Page.Email = self.email_string
-            Home_Page.Password = self.password_string
+            let CoreQuestions:Core_Question_Controller = segue.destinationViewController as! Core_Question_Controller
+            CoreQuestions.email = self.email_string
         }
     }
     

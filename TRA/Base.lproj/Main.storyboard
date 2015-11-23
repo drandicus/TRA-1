@@ -231,7 +231,7 @@
                                 </variation>
                                 <connections>
                                     <action selector="Sign_Up_Button:" destination="vzh-c2-VRd" eventType="touchUpInside" id="gnx-Q5-gxm"/>
-                                    <segue destination="fN0-1Z-8aq" kind="show" identifier="Sign_Up_Segue" id="FLQ-kX-iqm"/>
+                                    <segue destination="5w2-9c-iSP" kind="show" identifier="Sign_Up_Segue" id="fJf-zx-JXp"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5dz-oO-RG0">
@@ -459,6 +459,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Rbe-bl-WXn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="XwR-q6-4hG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLA-lY-1xD">
@@ -481,7 +482,7 @@
                                     <rect key="frame" x="26" y="63" width="78" height="21"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9H-Wh-8T4">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9H-Wh-8T4">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -510,6 +511,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mii-K0-iXF" id="Eo5-m3-vtn">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -625,6 +627,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="fJf-zx-JXp"/>
         <segue reference="G9f-Lc-Mro"/>
     </inferredMetricsTieBreakers>
 </document>
