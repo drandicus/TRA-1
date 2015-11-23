@@ -14,7 +14,7 @@ import Bolts
 
 
 struct AnswerStruct {
-    var question:String, answer:String, weight:Int
+    var question:String, answer:Int, weight:Int
 }
 
 struct QuestionStruct{
@@ -50,7 +50,7 @@ class Core_Question_Controller: UIViewController, UITableViewDelegate, UITableVi
     */
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.email = "test"
         self.answerTable.delegate = self
         self.answerTable.dataSource = self
         self.answerTable.scrollEnabled = false
@@ -110,15 +110,52 @@ class Core_Question_Controller: UIViewController, UITableViewDelegate, UITableVi
         self.questionCount.text = String(self.index + 1) + "/10 Questions Answered"
         self.questionLabel.text = self.questions[index].text
         
-        self.notImportant.backgroundColor = UIColor.whiteColor()
-        self.important.backgroundColor = UIColor.whiteColor()
-        self.veryImportant.backgroundColor = UIColor.whiteColor()
+        if self.index == self.answers.count {
+            
+            self.currentWeight = -1
+            self.currentAnswer = -1
+            
+            self.displayWeight(0)
         
-        self.currentWeight = -1
-        self.currentAnswer = -1
+            dispatch_async(dispatch_get_main_queue()){
+                self.answerTable.reloadData();
+            }
+            
+        } else {
+            
+            let previousAnswer = self.answers[index]
         
-        dispatch_async(dispatch_get_main_queue()){
-            self.answerTable.reloadData();
+            self.currentWeight = previousAnswer.weight
+            self.currentAnswer = previousAnswer.answer
+            
+            self.displayWeight(self.currentWeight + 1)
+            
+            dispatch_async(dispatch_get_main_queue()){
+                self.answerTable.reloadData();
+                let indexPath: NSIndexPath = NSIndexPath(forRow: self.currentAnswer, inSection: 0)
+                self.answerTable.selectRowAtIndexPath(indexPath, animated: false, scrollPosition: UITableViewScrollPosition.Middle)
+            }
+            
+        }
+    }
+    
+    func displayWeight(blue: Int){
+        if blue == 0 {
+            self.notImportant.backgroundColor = UIColor.whiteColor()
+            self.important.backgroundColor = UIColor.whiteColor()
+            self.veryImportant.backgroundColor = UIColor.whiteColor()
+        } else if blue == 1 {
+            self.notImportant.backgroundColor = UIColor.blueColor()
+            self.important.backgroundColor = UIColor.whiteColor()
+            self.veryImportant.backgroundColor = UIColor.whiteColor()
+        } else if blue == 2 {
+            self.notImportant.backgroundColor = UIColor.whiteColor()
+            self.important.backgroundColor = UIColor.blueColor()
+            self.veryImportant.backgroundColor = UIColor.whiteColor()
+        } else {
+            self.notImportant.backgroundColor = UIColor.whiteColor()
+            self.important.backgroundColor = UIColor.whiteColor()
+            self.veryImportant.backgroundColor = UIColor.blueColor()
         }
     }
     
@@ -126,38 +163,47 @@ class Core_Question_Controller: UIViewController, UITableViewDelegate, UITableVi
     These functions set the weight of the answer depending on the button selected
      */
     @IBAction func notImportantClick(sender: AnyObject) {
-        self.notImportant.backgroundColor = UIColor.blueColor()
-        self.important.backgroundColor = UIColor.whiteColor()
-        self.veryImportant.backgroundColor = UIColor.whiteColor()
+        self.displayWeight(1)
         self.currentWeight = 0
     }
     
     @IBAction func importantClick(sender: AnyObject) {
-        self.notImportant.backgroundColor = UIColor.whiteColor()
-        self.important.backgroundColor = UIColor.blueColor()
-        self.veryImportant.backgroundColor = UIColor.whiteColor()
+        self.displayWeight(2)
         
         self.currentWeight = 1
     }
     
     @IBAction func veryImportantClick(sender: AnyObject) {
-        self.notImportant.backgroundColor = UIColor.whiteColor()
-        self.important.backgroundColor = UIColor.whiteColor()
-        self.veryImportant.backgroundColor = UIColor.blueColor()
+        self.displayWeight(3)
         self.currentWeight = 2
+    }
+    
+    func saveSingleAnswer(){
+        let newAnswer = AnswerStruct(question: self.questions[index].id, answer: self.currentAnswer, weight: self.currentWeight)
+        
+        if self.index < self.maxAnswer {
+            print(self.answers[index].answer)
+            self.answers[index] = newAnswer
+            print(self.answers[index].answer)
+        } else {
+            self.answers.append(newAnswer)
+            self.maxAnswer += 1
+        }
     }
     
     /* This handles then the user selects the next option */
     @IBAction func nextClick(sender: AnyObject) {
         if !self.errorCheck() {
+            let alert = UIAlertView()
+            alert.title = "Error"
+            alert.message = "Please Input an Answer and a Weight"
+            alert.addButtonWithTitle("Ok")
+            alert.show()
             return
         }
         
         self.backButton.hidden = false
-        
-        let newAnswer = AnswerStruct(question: self.questions[index].id, answer: self.questions[index].possibleAnswers[self.currentAnswer], weight: self.currentWeight)
-        
-        self.answers.append(newAnswer)
+        self.saveSingleAnswer()
         self.index += 1
         
         if self.index == 9{
@@ -173,17 +219,32 @@ class Core_Question_Controller: UIViewController, UITableViewDelegate, UITableVi
     
     /* This function checks whether the user has properly answered the question */
     func errorCheck() -> Bool{
-        return self.currentWeight != -1 || self.currentAnswer != -1
+        let check1 = self.currentWeight == -1
+        let check2 = self.currentAnswer == -1
+        
+        return !(check2 == true || check1 == true)
     }
     
     
+    /*  
+        This function handles when the user clicks the back button to go
+        to go to the previous question 
+    */
     @IBAction func backClick(sender: AnyObject) {
+        
+        if self.errorCheck() {
+            self.saveSingleAnswer()
+        }
+        
         self.index -= 1
+        
         if index == 0 {
             self.backButton.hidden = true
         } else if self.index == 8 {
             self.next.setTitle("Next", forState: UIControlState.Normal)
         }
+        
+        
         
         self.displayQuestion()
     }
@@ -196,7 +257,7 @@ class Core_Question_Controller: UIViewController, UITableViewDelegate, UITableVi
             let newAnswer:PFObject = PFObject(className: "Answer")
             newAnswer["user"] = self.email
             newAnswer["questionID"] = self.questions[counter].id
-            newAnswer["answer"] = answer.answer
+            newAnswer["answer"] = self.questions[counter].possibleAnswers[answer.answer]
             newAnswer["Weight"] = answer.weight
             
             counter += 1
